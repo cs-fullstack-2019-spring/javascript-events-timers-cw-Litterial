@@ -39,20 +39,35 @@ question2Button[0].addEventListener('click',function()  /*this is the first butt
 /*Question 3..................................................*/
 var countitDown=document.getElementById("countdown");  /*calls for element with id "countdown*/
 countitDown.addEventListener('click',liftoff);  /*click listener for button*/
-count=10;  /*countdown counter*/
+/*count=10;  /!*countdown counter*!/
 function liftoff(e)
 {
     console.log('hi')
-    e.target.innerHTML=count;    /*changes the text in the button*/
-    count--;  /*subtracts the count by 1 each iteration*/
+    e.target.innerHTML=count;    /!*changes the text in the button*!/
+    count--;  /!*subtracts the count by 1 each iteration*!/
     if (count<0)
     {
-        e.target.innerHTML = "Liftoff";   /*Liftoff prints when count==0*/
-        count=10;    /*restarts back to 10 if the user would like to try again*/
+        e.target.innerHTML = "Liftoff";   /!*Liftoff prints when count==0*!/
+        count=10;    /!*restarts back to 10 if the user would like to try again*!/
+    }
+
+}*/
+
+
+function liftoff() {
+    var intervalID = window.setInterval(myCallback, 1000);   /*counts intervals*/
+    tentoLiftoff = 10;  /*starts at 10*/
+
+    function myCallback() {
+        console.log(tentoLiftoff);    /*prints in console.log*/
+        tentoLiftoff--;
+
+        if (tentoLiftoff == 0) {      /*if Countdown reaches 0, it prints countdown then stops the interval*/
+            console.log("Liftoff");
+            clearInterval(intervalID);
+        }
     }
 
 }
-
-
 
 
