@@ -54,16 +54,16 @@ function liftoff(e)
 }*/
 
 
-function liftoff() {
+function liftoff(e) {
     var intervalID = window.setInterval(myCallback, 1000);   /*counts intervals*/
     tentoLiftoff = 10;  /*starts at 10*/
 
     function myCallback() {
-        console.log(tentoLiftoff);    /*prints in console.log*/
-        tentoLiftoff--;
+        e.target.innerHTML=tentoLiftoff;    /*Shows on button*/
+        tentoLiftoff--;     /*increments down*/
 
-        if (tentoLiftoff == 0) {      /*if Countdown reaches 0, it prints countdown then stops the interval*/
-            console.log("Liftoff");
+        if (tentoLiftoff <= -1) {      /*if Countdown reaches 0, it prints countdown then stops the interval*/
+            e.target.innerHTML="Liftoff";
             clearInterval(intervalID);
         }
     }
