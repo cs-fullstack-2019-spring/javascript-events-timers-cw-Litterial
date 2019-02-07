@@ -59,15 +59,22 @@ function liftoff(e) {
     tentoLiftoff = 10;  /*starts at 10*/
 
     function myCallback() {
-        e.target.innerHTML=tentoLiftoff;    /*Shows on button*/
-        tentoLiftoff--;     /*increments down*/
+        /*wrapping them both in if-else statements forces the function to read either the if or the else statement
+        * but not both at the same time. This prevents a situation where 2 steps are done right after each other
+        * and that previous step appears to be *skipped* */
 
-        if (tentoLiftoff <= -1) {      /*if Countdown reaches 0, it prints countdown then stops the interval*/
-            e.target.innerHTML="Liftoff";
+        if (tentoLiftoff == 0) {      /*if Countdown reaches 0, it prints countdown then stops the interval*/
+            e.target.innerHTML = "Liftoff";
+            console.log("Liftoff");/*to see what's happening in the console.log*/
             clearInterval(intervalID);
+        }
+        else {
+            e.target.innerHTML = tentoLiftoff;/*Shows on button*/
+            console.log(tentoLiftoff); /*see what's happening in the console.log*/
+            tentoLiftoff--;     /*increments down*/
         }
     }
 
-}
+
 
 
